@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ header, section, footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
+    padding: 10px 20px;
     position: fixed;
     top: 0;
 }
@@ -52,6 +53,43 @@ header, section, footer {
     font-size: 14px;
     transition: all 0.3s ease;
 }
+
+/* General styles for buttons */
+button, .get-started-btn, .register-btn {
+    padding: 15px 30px;
+    background-color: #f19b0e;
+    color: white;
+    border: 2px solid white; /* White border for buttons */
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for links inside buttons */
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .get-started-btn:hover, .register-btn:hover {
+    background-color: #d07a05;
+}
+
+.get-started-btn {
+    margin-left: auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.register-btn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none; /* Ensure links inside buttons don't have underlines */
+}
+
 
 .container {
     background: #f4f4f4;
@@ -247,3 +285,5 @@ footer {
 footer p {
     margin: 0;
 }
+
+
