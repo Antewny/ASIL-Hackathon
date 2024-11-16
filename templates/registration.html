@@ -23,7 +23,11 @@
     <!-- Registration Section -->
     <section class="registration-section">
         <h1>Create an Account</h1>
-        <!-- The form will post to the '/registration' route -->
+
+        <section id="about" style="max-height: 200px; margin-top:-20px" class="about-section">
+            <p>This form will help you get started with your end goals. Your response will reflect the progress made for your adaptable habit using our integrated calendar.<br>Please make sure to add all the relevant details you want to share with the program for efficiency.</p>
+        </section>
+
         <form action="{{ url_for('registration') }}" method="POST" class="registration-form">
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -40,8 +44,8 @@
 
             <div class="form-group">
                 <input type="checkbox" id="waiver" name="waiver" required>
-                <label for="waiver">I agree to the waiver and acknowledge accountability when using the website.</label>
-            </div>
+                <label for="waiver"> I agree that I must stay truthful and loyal to my responses using <b>ASIL</b></label>
+            </div>            
 
             <div class="questions-section">
                 <h2>Additional Information</h2>
@@ -60,12 +64,12 @@
                     <div class="image-selection">
                         <input type="radio" id="character1" name="character" value="character1" required>
                         <label for="character1">
-                            <img src="{{ url_for('static', filename='images/character1.jpg') }}" alt="Character 1">
+                            <img src="{{ url_for('static', filename='images/plant.jpg') }}" alt="Character 1">
                         </label>
 
                         <input type="radio" id="character2" name="character" value="character2" required>
                         <label for="character2">
-                            <img src="{{ url_for('static', filename='images/character2.jpg') }}" alt="Character 2">
+                            <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Character 2">
                         </label>
                     </div>
                 </div>
