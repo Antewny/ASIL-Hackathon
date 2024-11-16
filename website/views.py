@@ -4,11 +4,11 @@ views = Blueprint("views", __name__)
 
 @views.route('Index')
 def index():
-    return "<h1>index</h1>"
+    return render_template("index.html")
 
 @views.route('Profile')
 def profile():
-   return "<h2>Profile</h2>"
+   return render_template("profile.html")
 
 @views.route('Questions')
 def Questions():
