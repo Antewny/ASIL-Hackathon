@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASIL - Overcome Bad Habits</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
     <!-- Top Bar -->
     <header class="top-bar">
-        <div href="index.html" class="logo">ASIL</div>
+        <a href="{{ url_for('index') }}" class="logo">ASIL</a>
         <nav class="nav-links">
             <a href="#about">About</a>
             <a href="#team">Team</a>
             <a href="#how-to-get-started">How to Get Started</a>
         </nav>
-        <a href="registration.html" class="get-started-btn">Sign up</a> <!-- Change to anchor link -->
+        <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
     </header>
 
     <!-- Hero Section -->
@@ -23,10 +25,10 @@
         <div class="hero-section text">
             <h1>ASIL</h1>
             <p>Fun and easy way to overcome Bad Habits</p>
-            <a href="registration.html" class="register-btn">Register Now</a> <!-- Change to anchor link -->
+            <a href="{{ url_for('registration') }}" class="register-btn">Register Now</a>
         </div>
         <div class="hero-section img">
-            <img src="/images/tree.jpg" alt="Tree representing growth and overcoming habits">
+            <img src="{{ url_for('static', filename='images/tree.jpg') }}" alt="Tree representing growth and overcoming habits">
         </div>
     </section>
 
@@ -45,22 +47,22 @@
         <h2>Meet the Team</h2>
         <div class="team-grid">
             <div class="team-member">
-                <img src="/images/profile.png" alt="Teammate 1">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Teammate 1">
                 <h3>Teammate 1</h3>
                 <p>Role</p>
             </div>
             <div class="team-member">
-                <img src="/images/profile.png" alt="Teammate 2">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Teammate 2">
                 <h3>Teammate 2</h3>
                 <p>Role</p>
             </div>
             <div class="team-member">
-                <img src="/images/profile.png" alt="Teammate 3">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Teammate 3">
                 <h3>Teammate 3</h3>
                 <p>Role</p>
             </div>
             <div class="team-member">
-                <img src="/images/profile.png" alt="Teammate 4">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Teammate 4">
                 <h3>Teammate 4</h3>
                 <p>Role</p>
             </div>
@@ -75,7 +77,7 @@
             <li>Answer a quick questionnaire about the bad habit you wish to overcome and select your character</li>
             <li>Start using the web app!</li>
         </ul>
-        <a href="registration.html" class="register-btn">Register Now</a> <!-- Change to anchor link -->
+        <a href="{{ url_for('registration') }}" class="register-btn">Register Now</a>
     </section>
 
     <!-- Footer -->

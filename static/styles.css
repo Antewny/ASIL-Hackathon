@@ -19,6 +19,67 @@ header, section, footer {
     padding: 50px 20px;
 }
 
+
+/* Navigation links styling */
+.nav-links {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    gap: 20px;
+}
+
+.nav-links .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Styling the "Sign up" button */
+.get-started-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid white;
+}
+
+/* Disable navigation links when on registration page */
+body.registration-page .nav-links a {
+    pointer-events: none; /* Disable clicking on the nav links */
+    color: #888; /* Change the color of the links to indicate they are inactive */
+}
+
+/* For non-active registration page links: optional, makes links look less clickable */
+body.registration-page .nav-links a:hover {
+    background-color: transparent;
+    color: #888;
+}
+
+
+
+
+/* General styling for top-bar */
+.top-bar {
+    width: 100%;
+    background-color: #f19b0e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Styling the logo */
+.logo {
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+}
+
 .top-bar {
     width: 100%;
     background-color: #f19b0e;
