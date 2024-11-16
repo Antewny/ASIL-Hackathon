@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ASIL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">ASIL</div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+            <a href="#how-to-get-started">Get Started</a>
+        </nav>
+        <button class="get-started-btn">Get Started</button>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="registration-section">
+        <h1>Create an Account</h1>
+        <form action="#" method="POST" class="registration-form">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="waiver" name="waiver" required>
+                <label for="waiver">I agree to the waiver and acknowledge accountability when using the website.</label>
+            </div>
+
+            <div class="questions-section">
+                <h2>Additional Information</h2>
+
+                <div class="form-group">
+                    <label for="question1">Why do you want to use this app?</label>
+                    <textarea id="question1" name="question1" placeholder="Your answer" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question2">What is your primary goal in overcoming bad habits?</label>
+                    <textarea id="question2" name="question2" placeholder="Your answer" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Choose your character:</label>
+                    <div class="image-selection">
+                        <input type="radio" id="character1" name="character" value="character1" required>
+                        <label for="character1">
+                            <img src="/images/character1.jpg" alt="Character 1">
+                        </label>
+
+                        <input type="radio" id="character2" name="character" value="character2" required>
+                        <label for="character2">
+                            <img src="/images/character2.jpg" alt="Character 2">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 by ASIL</p>
+    </footer>
+</body>
+</html>
