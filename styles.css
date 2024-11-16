@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -37,13 +37,14 @@ header, section, footer {
 
 .nav-links a {
     color: white;
+    align-items: right;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
 }
 
 .sign-up-btn {
-    background-color: #fff; 
+    background-color: #f4f4f4; 
     color: #f19b0e; 
     padding: 0px 0px;
     border: 2px solid white;
