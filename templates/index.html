@@ -9,7 +9,6 @@
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <!-- <div class="back">  -->
     <header class="top-bar">
         <a href="{{ url_for('index') }}" class="logo">ASIL</a>
         {% if user_logged_in %}
@@ -19,7 +18,6 @@
         {% endif %}
     </header>
 
-    <!-- Hero Section -->
     <section class="container">
         <div class="hero-section text">
             <h1>ASIL</h1>
@@ -33,19 +31,14 @@
         </div>
     </section>
 
-<!-- </div> -->
-
-    <!-- About Section -->
     <section id="about" class="about-section">
         <h2>About ASIL</h2>
         <p>
-            ASIL is a web app dedicated to helping individuals overcome bad habits, 
-            such as drinking or smoking, by setting goals and following them for 
-            a certain amount of time.
+            ASIL is a transformative web app designed to help individuals overcome bad habits. 
+            Set goals, track progress, and achieve a better version of yourself.
         </p>
     </section>
 
-    <!-- Meet the Team Section -->
     <section id="team" class="team-section">
         <h2>Meet the Team</h2>
         <div class="team-grid">
@@ -72,32 +65,35 @@
         </div>
     </section>
 
-    <!-- How to Get Started Section -->
     <section id="how-to-get-started" class="get-started-section">
-        <h2>How to Get Started</h2>
+        <h2>How to Get Started with ASIL</h2>
         <div class="steps-container">
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-text">
-                    <p>Create an account by clicking the button in the top right corner and entering your information.</p>
+                    <p><strong>Create Your Account:</strong> Click the <strong>Sign Up</strong> button at the top right of the page. Fill in your information, including your email, username, and password, to create a personalized account.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-text">
-                    <p>Answer a quick questionnaire about the bad habit you wish to overcome and select your character.</p>
+                    <p><strong>Tell Us About Your Goals:</strong> Complete a quick questionnaire about the bad habit(s) you want to overcome. Share your specific goals, select how long you aim to stay habit-free, and choose a character that represents your journey.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-text">
-                    <p>Start using the web app!</p>
+                    <p><strong>Start Your Journey:</strong> Once you've completed the setup, you're ready to dive into the ASIL experience. Use our web app to track your progress, stay motivated with your character, and adapt your habits step-by-step!</p>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
-
+    <section id="contact-us" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Feel free to write to us at <a href="mailto:asil@gmail.com">asil@gmail.com</a> if you have any questions.</p>
+    </section>
+    
     <footer>
         <p>© 2024 by ASIL</p>
     </footer>

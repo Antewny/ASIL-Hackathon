@@ -7,20 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- <div class="page-container"> -->
     <header class="top-bar">
         <div style="color: white" class="logo">
             <a href="{{ url_for('index') }}">ASIL</a>
         </div>
-        <!-- <nav class="nav-links">
-            <a href="#about">About</a>
-            <a href="#team">Team</a>
-            <a href="#how-to-get-started">How to Get Started</a>
-        </nav> -->
         <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a> <!-- Update link to use Flask's URL -->
     </header>
 
-    <!-- Registration Section -->
     <section class="registration-section">
         <h1>Create an Account</h1>
         <section id="about" style="max-height: 250px; margin-top:-5%" class="about-section">
@@ -89,12 +82,9 @@
         </form>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2024 by ASIL</p>
     </footer>
-
-<!-- </div>  -->
 </body>
 </html>
 

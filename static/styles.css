@@ -20,7 +20,7 @@ body {
 }
 
 .back {
-    background-color: f4f4f4; 
+    background-color: #f4f4f4; 
     width:100%;
 }
 
@@ -28,7 +28,6 @@ header, section, footer {
     padding: 50px 20px;
 }
 
-/* Navigation links styling */
 .nav-links {
     display: flex;
     justify-content: flex-end;
@@ -41,7 +40,6 @@ header, section, footer {
     font-size: 18px;
 }
 
-/* Styling the "Sign up" button */
 .get-started-btn {
     padding: 10px 20px;
     background-color: #333;
@@ -62,7 +60,6 @@ body.registration-page .nav-links a:hover {
     color: #888;
 }
 
-/* General styling for top-bar */
 .top-bar {
     width: 100%;
     background-color: #f19b0e;
@@ -73,13 +70,14 @@ body.registration-page .nav-links a:hover {
     position: fixed;
     top: 0;
     z-index: 100;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .page-container {
     background-color: #f4f4f4;
 }
 
-/* Styling the logo */
 .logo {
     font-size: 28px;
     color: white;
@@ -103,6 +101,14 @@ body.registration-page .nav-links a:hover {
     border-radius: 10px;
     font-size: 14px;
     transition: all 0.3s ease;
+}
+
+.sign-in-link {
+    display: inline-block;
+    margin-top: 20px; 
+    font-size: 18px; 
+    color: black;  
+    text-decoration: none; 
 }
 
 .sign-in-link:link,
@@ -130,8 +136,9 @@ button:hover, .get-started-btn:hover, .register-btn:hover {
 
 .register-btn {
     font-size: 20px;
-    padding: 15px 40px;
-    margin-top: 20px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: #f19b0e;
     color: white;
     border: 2px solid white;
@@ -140,7 +147,7 @@ button:hover, .get-started-btn:hover, .register-btn:hover {
 }
 
 a {
-    text-decoration: none; /* Ensure links inside buttons don't have underlines */
+    text-decoration: none;
 }
 
 a:visited {
@@ -159,7 +166,7 @@ a:visited {
 }
 
 .hero-section profile {
-    background-color: #f4f4f4; /* Light gray background */
+    background-color: #f4f4f4;
     padding-top: 100px;
     padding-left:20px;
     marging-bottom: -100px;
@@ -193,14 +200,18 @@ a:visited {
 .about-section p, .team-section p, .get-started-section ul {
     font-size: 23px;
     line-height: 1.6;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
+}
+
+.about-section h2 {
+    margin-bottom: 30px;
 }
 
 .team-section .team-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 40px;
     margin-top: 30px;
 }
 
@@ -209,10 +220,18 @@ a:visited {
 }
 
 .team-member img {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 24px;
+}
+
+.team-member p {
+    font-size: 18px;
 }
 
 .register-btn, .sign-up-btn {
@@ -226,25 +245,90 @@ a:visited {
     background-color: #f19b0e;
     color: white;
 }
-
-@media (max-width: 768px) {
-    .hero-section, .about-section, .team-section, .get-started-section {
-        padding: 40px 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 36px;
-    }
-
-    .hero-section p {
-        font-size: 20px;
-    }
-
-    .team-member img {
-        width: 100px;
-        height: 100px;
-    }
+.get-started-section {
+    background-color: transparent;
 }
+
+.get-started-section {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding-top: 10px;
+    padding-bottom: 100px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.step-number {
+    font-size: 40px;
+    padding: 5px;
+    font-weight: bold;
+    color: #f19b0e; 
+    flex-shrink: 0;
+}
+
+.step-text {
+    text-align: left;
+    font-size: 20px;
+    color: #333;
+}
+
+.contact-section {
+    padding: 1rem 2rem;
+    text-align: center;
+    margin-top: -5%;
+    margin-bottom: 3%;
+}
+
+.contact-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    font-size: 16px;
+    color: #555;
+}
+
+.contact-section a {
+    color: #f19b0e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333; 
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
 
 .registration-section {
     padding-top: 120px;
@@ -372,44 +456,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-footer {
-    background-color: #333; 
-    color: white;
-    font-size: 14px;
-    padding: 10px 20px;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
-
-footer p {
-    margin: 0;
-}
-
-.get-started-section ul {
-    list-style-type: decimal;
-    font-size: 20px;
-    margin: 0 auto;
-    padding-left: 20px; 
-}
-
-.get-started-section ol {
-    font-size: 20px;
-    margin: 0 auto;
-    padding-left: 20px;
-    list-style-type: decimal;
-}
-
-.get-started-section li {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.get-started-section {
-    background-color: transparent;
-}
-
 .register-btn:hover {
     background-color: #d07a05;
 }
@@ -424,7 +470,6 @@ footer p {
     margin-top: 10px;
 }
 
-
 .modal {
     display: none;
     position: fixed;
@@ -434,14 +479,13 @@ footer p {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0,0,0,0.4);
     padding-top: 60px;
 }
 
 .modal-content {
     background-color: white;
-    margin: 5% auto;
+    margin: 15% auto;
     padding: 20px;
     width: 50%;
     border-radius: 10px;
@@ -455,20 +499,21 @@ footer p {
 }
 
 .modal-content label {
-    margin-bottom: 5px; /* Adds some space between labels and their inputs */
+    margin-bottom: 5px;
+    font-size: 18px;
 }
 
 .modal-content input {
-    margin-bottom: 15px; /* Adds extra space between input fields */
-    padding: 10px; /* Ensures input fields are comfortable to use */
-    border-radius: 5px; /* Makes inputs look more appealing */
+    margin-bottom: 15px;
+    padding: 10px; 
+    border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .modal-content button {
-    margin-top: 15px; /* Adds spacing above the button */
-    padding: 10px 20px; /* Increases button size for better usability */
+    margin-top: 15px;
+    padding: 10px 20px; 
     background-color: #f19b0e;
     color: white;
     border-radius: 5px;
@@ -489,16 +534,13 @@ footer p {
     font-weight: bold;
 }
 
-.close-btn:hover,
-.close-btn:focus {
+.close-btn:hover, .close-btn:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* Profile Section */
 .profile-container {
-    /* display: flex; */
     justify-content: space-between;
     padding: 20px;
     width: 80%;
@@ -517,67 +559,23 @@ footer p {
 }
 
 .profile-picture img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
 .username-status {
     margin-top: 10px;
 }
 
-.get-started-section {
-    text-align: center;
-    margin: 2rem auto;
-    padding: 2rem;
-    max-width: 800px;
-}
-
-.steps-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin-top: 2rem;
-    padding-top: 10px;
-    padding-bottom: 100px;
-}
-
-.p {
-    font-size: 16px;
-}
-
-.step {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.step-number {
-    font-size: 30px;
-    font-weight: bold;
-    color: #f19b0e; /* Customize this color as needed */
-    flex-shrink: 0;
-}
-
-.step-text {
-    text-align: left;
-    font-size: 20px;
-    color: #333;
-}
-
-
-
-
-/* General styling for hero-section */
-
-
 .profile-text {
     flex: 1;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 50px 50px; 
+    padding: 50px; 
 }
 
 .profile-text .large-profile-img {
@@ -597,7 +595,7 @@ footer p {
 }
 
 .check-in-section {
-    margin-top: -50px;
+    margin-top: -3%;
 }
 
 .check-in-section p {
@@ -608,6 +606,7 @@ footer p {
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px; 
+    text-align: left;
 }
 
 #check-in-btn {
@@ -632,6 +631,7 @@ footer p {
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 5%;
 }
 
 .large-btn:hover {
@@ -643,9 +643,9 @@ footer p {
     font-family: Arial, sans-serif;
 }
 
-.report-container {
+.calendar {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
 }
 
 .calendar-container {
@@ -653,11 +653,6 @@ footer p {
     border: 1px solid #ccc;
     padding: 10px;
     background-color: #f9f9f9;
-}
-
-.calendar {
-    display: flex;
-    flex-direction: column;
 }
 
 .calendar__month,
@@ -699,17 +694,15 @@ footer p {
 }
 
 .day:hover {
-    background-color: #007BFF;
+    background-color: #D6890C;
     color: white;
 }
 
-/* Optional: Highlight current day */
 #sun, #mon, #tue, #wed, #thu, #fri, #sat {
     background-color: #f9f9f9;
     font-weight: normal;
 }
 
-/* Profile Section */
 .hero-section.profile {
     display: flex;
     align-items: center;
@@ -726,18 +719,14 @@ footer p {
 }
 
 .profile-pic {
-    flex: 1;
-    text-align: right;
-}
-
-.profile-picture img {
-    width: 300px;
-    height: auto;
-    border-radius: 15px;
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .username-status p {
-    font-size: 24px;
+    font-size: 22px;
     margin: 10px 0;
 }
 
@@ -746,6 +735,7 @@ footer p {
     justify-content: space-between;
     position: relative;
     margin-top: 20px;
+    gap: 30px;
 }
 
 .calendar-container {
@@ -769,41 +759,88 @@ footer p {
     color: white;
 }
 
-/* Check-in Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+.week-container {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-}
-
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
     font-weight: bold;
 }
 
-.close-btn:hover, .close-btn:focus {
-    color: black;
-    text-decoration: none;
+.weekday {
+    padding: 10px;
+    background-color: #f19b0e;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Responsive Design */
+.weekday:hover {
+    background-color: #D6890C;
+}
+
+.journal-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.journal-box {
+    /* background-color: #f9f9f9; */
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    position: relative;
+    z-index: 1;
+}
+
+.journal-box p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.journal-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: 0;
+}
+
 @media (max-width: 768px) {
+    .hero-section, .about-section, .team-section, .get-started-section {
+        padding: 40px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 36px;
+    }
+
+    .hero-section p {
+        font-size: 20px;
+    }
+
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+    
     .hero-section.profile {
         flex-direction: column;
         text-align: center;
@@ -829,52 +866,3 @@ footer p {
     }
 }
 
-.week-container {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-.weekdays {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-}
-
-.weekday {
-    padding: 10px;
-    background-color: #f19b0e;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.weekday:hover {
-    background-color: #d07a05;
-}
-
-.journal-container {
-    width: 60%;
-    margin-left: 20px;
-}
-
-.journal-box {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    border: 2px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 150px;
-}
-
-.journal-box p {
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-}

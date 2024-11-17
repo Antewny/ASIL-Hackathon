@@ -27,6 +27,7 @@
             <div class="username-status">
                 <p class="username">{{ username_placeholder }}</p> 
                 <p class="status">Days Kept Up: {{ days_kept_up_placeholder }}</p> 
+                <p class="current-goal">Current Goal: {{ current_goal_placeholder }}</p> <!-- New Field -->
                 <p class="pet-name">Pet Name: {{ pet_name_placeholder }}</p>
                 <p class="pet-level">Pet Level: {{ pet_level_placeholder }}</p>
             </div>
@@ -34,8 +35,16 @@
     </section>
 
     <section class="check-in-section">
-        <button id="check-in-btn" class="large-btn">Check-in</button>
-        <p><br> This button is for your daily check-in. Filling out this form every day will help your character grow and level up over time, reflecting your progress and development. Be honest when answering, as this helps track your true progress and improvement. Let’s keep moving forward together!</p>
+        <p>The daily check-in button is your tool for staying on track and reflecting on your progress. By completing it every day, you'll help your character grow and level up, symbolizing the progress you're making in overcoming your bad habit.<br>
+            Remember, the more honest you are in your responses, the better we can track your true development and success. Stay committed, stay honest, and let's move forward together toward your goal!</p>
+        
+        <button id="check-in-btn" class="large-btn {% if checked_in_today %}checked-in{% endif %}">
+            {% if checked_in_today %}
+                You have checked in today!
+            {% else %}
+                Check-in
+            {% endif %}
+        </button>
     </section>
     
     <div id="check-in-modal" class="modal">
@@ -43,14 +52,14 @@
             <span class="close-btn" id="close-btn">&times;</span>
             <h2>Daily Check-in</h2>
             <form action="{{ url_for('check_in') }}" method="POST" id="check-in-form">
-                <label for="bad-habit">Did you avoid your bad habit today?</label>
+                <label for="bad-habit"><b>Progress: </b>Were you able to stay strong and avoid your bad habit today?</label>
                 <div>
                     <input type="radio" name="bad-habit" value="yes" id="bad-habit-yes" required> <label for="bad-habit-yes">Yes</label>
                     <input type="radio" name="bad-habit" value="no" id="bad-habit-no" required> <label for="bad-habit-no">No</label>
                 </div>
                 
-                <label for="journal">Write about your Journal entry for today:</label>
-                <textarea id="journal" name="journal" rows="4" cols="50" required></textarea>
+                <label for="journal" ><b>Journal Entry:</b> Use this space to write share your thoughts about today. What went well? What challenges did you face? How do you feel about your progress?</label>
+                <textarea id="journal" name="journal" rows="4" cols="50" placeholder="e.g Today went well! I successfully avoided my habit of smoking, and I felt proud and energized. It wasn't easy, but I stayed focused and reminded myself why I'm on this journey." required></textarea>
                 
                 <button type="submit" id="submit-check-in">Submit</button>
             </form>
@@ -58,7 +67,7 @@
     </div>
 
     <section class="weekly-report-section">
-        <h2>Report</h2>
+        <h2>Weekly Report</h2>
         <div class="report-container">
             <div class="calendar-container">
                 <div class="calendar">
@@ -67,43 +76,44 @@
                     <div class="calendar__days" id="calendar-days"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="week-container">
-            <div class="weekdays">
-                <div class="weekday" data-day="Sunday">Sun</div>
-                <div class="weekday" data-day="Monday">Mon</div>
-                <div class="weekday" data-day="Tuesday">Tue</div>
-                <div class="weekday" data-day="Wednesday">Wed</div>
-                <div class="weekday" data-day="Thursday">Thu</div>
-                <div class="weekday" data-day="Friday">Fri</div>
-                <div class="weekday" data-day="Saturday">Sat</div>
-            </div>
-            <div class="journal-container">
-                <div class="journal-box" id="journal-box">
-                    <p>Select a day to view your journal entry.</p>
+    
+            <div class="week-container">
+                <div class="weekdays">
+                    <div class="weekday" data-day="Sunday">Sun</div>
+                    <div class="weekday" data-day="Monday">Mon</div>
+                    <div class="weekday" data-day="Tuesday">Tue</div>
+                    <div class="weekday" data-day="Wednesday">Wed</div>
+                    <div class="weekday" data-day="Thursday">Thu</div>
+                    <div class="weekday" data-day="Friday">Fri</div>
+                    <div class="weekday" data-day="Saturday">Sat</div>
+                </div>
+                <div class="journal-container">
+                    <div class="journal-box" id="journal-box">
+                        <p>Select a day to view your journal entry.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-    </section>
+    </section>   
+    
+    <footer>
+        <p>© 2024 by ASIL</p>
+    </footer>
 
     <script>
         document.getElementById('check-in-btn').addEventListener('click', () => {
             document.getElementById('check-in-modal').style.display = 'block';
         });
 
-        // Close modal on close button click
         document.getElementById('close-btn').addEventListener('click', () => {
             document.getElementById('check-in-modal').style.display = 'none';
         });
 
         document.addEventListener('DOMContentLoaded', function () {
     
-            const weekdays = document.querySelectorAll('.weekday');
+        const weekdays = document.querySelectorAll('.weekday');
         const journalBox = document.getElementById('journal-box');
 
-        // Example journal data for each day of the week
         const journals = {
             Sunday: "Journal entry for Sunday.",
             Monday: "Journal entry for Monday.",
@@ -114,20 +124,14 @@
             Saturday: "Journal entry for Saturday."
         };
 
-        // Add event listeners to each weekday button
         weekdays.forEach(day => {
             day.addEventListener('click', () => {
                 const selectedDay = day.getAttribute('data-day');
-                // Update the journal box with the corresponding entry
                 journalBox.innerHTML = `<p>${journals[selectedDay]}</p>`;
             });
         });
     });
-
         
     </script>
 </body>
 </html>
-
-
-<!-- jornal - array of strings -->

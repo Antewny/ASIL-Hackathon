@@ -8,7 +8,6 @@ function getWeekRange(date) {
     return [startDate, endDate];
 }
 
-// Update the mini calendar and weekly view
 function updateCalendar() {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const month = currentDate.getMonth();
@@ -47,7 +46,7 @@ function highlightCurrentWeek() {
     weekDays.forEach(day => {
         const dayNumber = parseInt(day.textContent, 10);
         if (dayNumber >= startDate.getDate() && dayNumber <= endDate.getDate()) {
-            day.style.backgroundColor = '#007BFF';
+            day.style.backgroundColor = '#f19b0e';
             day.style.color = 'white';
         }
     });
