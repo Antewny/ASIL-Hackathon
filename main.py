@@ -12,29 +12,16 @@ users = {
     },
     "Bili Bob": {
         "days_kept_up": 1,
-        "creature_name": "Armagedon",
+        "creature_name": "Armageddon",
         "creature_level": 2,
         "checked_in_days": ["November 17, 2024"],
         "current_goal": 60
     }
 }
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    user_logged_in = True
-    if request.method == 'POST':
-        # Get the selected character from the form
-        selected_character = request.form.get('character')
-        
-        # Handle the selected character (e.g., print it, store it, etc.)
-        if selected_character:
-            print(f"Selected character: {selected_character}")
-        else:
-            print("No character selected")
-
-        return render_template('index.html', selected_character=selected_character)
-    
-    return render_template('index.html', user_logged_in=user_logged_in, selected_character=None)
+    return render_template('index.html', user_logged_in=True)
 
 @app.route("/profile")
 def profile():
@@ -65,7 +52,6 @@ def sign_in():
     username = request.form['username']
     password = request.form['password']
     #return something
-
 
 @app.route('/checkin')
 def checkin():
