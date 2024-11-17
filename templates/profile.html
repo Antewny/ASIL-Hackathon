@@ -10,17 +10,17 @@
 <body>
     <header class="top-bar">
         <a href="{{ url_for('views.index') }}" class="logo">ASIL</a>
-        {% if user_logged_in %}
-            <a href="{{ url_for('views.profile') }}">Profile</a>
-        {% else %}
-            <a href="{{ url_for('auth.registration') }}" class="get-started-btn">Sign up</a>
-        {% endif %}
+        <a href="{{ url_for('views.index') }}">Log out</a>
     </header>
     
     <section class="hero-section profile">
         <div class="profile-pic">
             <div class="profile-picture">
-                <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% if username_placeholder == "Katy Lio" %}
+                    <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/plant.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% endif %}    
             </div>
         </div>
         <div class="profile-text">
@@ -60,7 +60,7 @@
     
             <div class="week-container">
                 <div class="weekdays">
-                    <div class="weekday" data-day="Sunday">Sun</div>
+                    <div class="weekday" style="background-color: #f19b0e;" data-day="Sunday">Sun</div>
                     <div class="weekday" data-day="Monday">Mon</div>
                     <div class="weekday" data-day="Tuesday">Tue</div>
                     <div class="weekday" data-day="Wednesday">Wed</div>
@@ -68,9 +68,11 @@
                     <div class="weekday" data-day="Friday">Fri</div>
                     <div class="weekday" data-day="Saturday">Sat</div>
                 </div>
+                
                 <div class="journal-container">
                     <div class="journal-box" id="journal-box">
-                        <p>Select a day to view your journal entry.</p>
+                        <p>Today felt easier than when I started. I didn't even want to smoke today!</p>
+                        <!-- <p>Select a day to view your journal entry.</p> -->
                     </div>
                 </div>
             </div>
@@ -90,28 +92,29 @@
             document.getElementById('check-in-modal').style.display = 'none';
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
+    //     document.addEventListener('DOMContentLoaded', function () {
     
-        const weekdays = document.querySelectorAll('.weekday');
-        const journalBox = document.getElementById('journal-box');
+    //     const weekdays = document.querySelectorAll('.weekday');
+    //     const journalBox = document.getElementById('journal-box');
 
-        const journals = {
-            Sunday: "Journal entry for Sunday.",
-            Monday: "Journal entry for Monday.",
-            Tuesday: "Journal entry for Tuesday.",
-            Wednesday: "Journal entry for Wednesday.",
-            Thursday: "Journal entry for Thursday.",
-            Friday: "Journal entry for Friday.",
-            Saturday: "Journal entry for Saturday."
-        };
+    //     const journals = {
+    //         Sunday: "Journal entry for Sunday.",
+    //         Monday: "Journal entry for Monday.",
+    //         Tuesday: "Journal entry for Tuesday.",
+    //         Wednesday: "Journal entry for Wednesday.",
+    //         Thursday: "Journal entry for Thursday.",
+    //         Friday: "Journal entry for Friday.",
+    //         Saturday: "Journal entry for Saturday."
+    //     };
 
-        weekdays.forEach(day => {
-            day.addEventListener('click', () => {
-                const selectedDay = day.getAttribute('data-day');
-                journalBox.innerHTML = `<p>${journals[selectedDay]}</p>`;
-            });
-        });
-    });
+    //     weekdays.forEach(day => {
+    //         day.addEventListener('click', () => {
+    //             // const selectedDay = day.getAttribute('data-day');
+    //             // journalBox.innerHTML = `<p>${journals[selectedDay]}</p>`;
+    //             journalBox.innerHTML = "Hello";
+    //         });
+    //     });
+    // });
         
     </script>
 </body>

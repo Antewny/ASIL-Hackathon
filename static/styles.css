@@ -379,7 +379,7 @@ footer p {
 .check-in-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .form-group {
@@ -658,6 +658,7 @@ button:hover {
 .weekly-report-section {
     padding: 20px;
     font-family: Arial, sans-serif;
+    margin-bottom: 100px;
 }
 
 .calendar {
@@ -792,7 +793,7 @@ button:hover {
 
 .weekday {
     padding: 10px;
-    background-color: #f19b0e;
+    background-color: #c07a0a;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -802,7 +803,7 @@ button:hover {
 }
 
 .weekday:hover {
-    background-color: #D6890C;
+    background-color: #c07a0a;
 }
 
 .journal-container {
