@@ -6,6 +6,7 @@ app.secret_key = 'your_secret_key'
 def index():
     return render_template('index.html', user_logged_in=True)
 
+
 @app.route("/profile")
 def profile():
     username = "Iuliana Cherevko"
@@ -41,12 +42,10 @@ def sign_in():
     password = request.form['password']
     #return something
 
-@app.route('/check-in', methods=['POST'])
-def check_in():
-    bad_habit = request.form.get('bad-habit')
-    journal = request.form.get('journal')
-    checked_in_days = ["November 16, 2024"]
-    return redirect(url_for('profile', checked_in_days=checked_in_days))
+
+@app.route('/checkin')
+def checkin():
+    return render_template('checkin.html',  user_logged_in=True)
 
 if __name__ == '__main__':
     app.run(debug=True)

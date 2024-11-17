@@ -329,6 +329,28 @@ footer p {
     margin: 0;
 }
 
+.text-section {
+    margin-top: -10%;
+}
+
+.text-section p {
+    font-size: 3-px;
+    font-size: 20px; 
+    line-height: 1.6;  
+    margin-bottom: 20px; 
+    margin-top: 7%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.check-in-section {
+    padding-top: 10%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .registration-section {
     padding-top: 120px;
@@ -337,16 +359,24 @@ footer p {
     margin: 0 auto;
 }
 
-.registration-section h1 {
+.registration-section h1, .check-in-section h1 {
     font-size: 45px;
     margin-bottom: 20px;
 }
 
-.registration-section p {
-    font-size: 22px;
+.check-in-section p {
+    font-size: 3-px;
+    font-size: 20px; 
+    line-height: 1.6;  
+    margin-bottom: 20px; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-.registration-form {
+.registration-form,
+.check-in-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -382,6 +412,7 @@ footer p {
     margin-bottom: 8px;
     color: #333;
     text-align: left;
+    line-height: 1.6;
 }
 
 .form-group input {
@@ -594,20 +625,6 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.check-in-section {
-    margin-top: -3%;
-}
-
-.check-in-section p {
-    font-size: 18px; 
-    line-height: 1.6;  
-    margin-bottom: 30px; 
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px; 
-    text-align: left;
-}
 
 #check-in-btn {
     padding: 20px 40px;  
