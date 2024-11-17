@@ -4,38 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <!-- Profile Section -->
-    <section class="profile-container">
-        <!-- Left Side (Profile Picture and Username) -->
-        <div class="profile-left">
-            <div class="profile-picture">
-                <img src="{{ url_for('static', filename='images/profile_picture.jpg') }}" alt="Profile Picture">
+    <div class="back"> 
+        <header class="top-bar">
+            <a href="{{ url_for('index') }}" class="logo">ASIL</a>
+            {% if user_logged_in %}
+                <a href="{{ url_for('profile') }}" class="profile-icon">
+                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile Icon">
+                </a>
+            {% else %}
+                <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
+            {% endif %}
+        </header>
+    
+        <section class="hero-section">
+            <div class="profile-left">
+                <div class="profile-picture">
+                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile Picture" class="large-profile-img">
+                </div>
             </div>
-            <div class="username-status">
-                <p class="username">{{ username_placeholder }}</p> <!-- Replace with username -->
-                <p class="status">Days Kept Up: {{ days_kept_up_placeholder }}</p> <!-- Replace with days kept up -->
+            <div class="profile-right">
+                <div class="username-status">
+                    <p class="username">{{ username_placeholder }}</p> 
+                    <p class="status">Days Kept Up: {{ days_kept_up_placeholder }}</p> 
+                    <p class="pet-name">Pet Name: {{ pet_name_placeholder }}</p>
+                    <p class="pet-level">Pet Level: {{ pet_level_placeholder }}</p>
+                </div>
             </div>
-        </div>
-
-        <!-- Right Side (Creature and its details) -->
-        <div class="creature-right">
-            <div class="creature-image">
-                <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Creature Image">
-            </div>
-            <div class="creature-details">
-                <p class="creature-name">{{ creature_name_placeholder }}</p> <!-- Replace with creature name -->
-                <p class="creature-level">Level {{ creature_level_placeholder }}</p> <!-- Replace with creature level -->
-            </div>
-        </div>
-    </section>
+        </section>
+    
+    </div>
 
     <!-- Check-in Section -->
     <section class="check-in-section">
-        <button id="check-in-btn">Check-in</button>
+        <button id="check-in-btn" class="large-btn">Check-in</button>
+    </section>
+
+    <!-- Weekly Report Section -->
+    <section class="weekly-report-section">
+        <h2>Weekly Report</h2>
+        <div class="report-container">
+            <!-- Left Column - Calendar -->
+            <div class="calendar-container">
+                <div class="calendar">
+                    <div class="calendar__month"></div>
+                    <div class="calendar__year"></div>
+                    <div class="calendar__days"></div>
+                </div>
+            </div>
+
+            <!-- Right Column - Current Week View -->
+            <div class="week-view">
+                <div class="day" id="sun">Sunday</div>
+                <div class="day" id="mon">Monday</div>
+                <div class="day" id="tue">Tuesday</div>
+                <div class="day" id="wed">Wednesday</div>
+                <div class="day" id="thu">Thursday</div>
+                <div class="day" id="fri">Friday</div>
+                <div class="day" id="sat">Saturday</div>
+            </div>
+        </div>
     </section>
 
     <!-- Check-in Modal (Popup) -->
@@ -65,5 +96,6 @@
             </form>
         </div>
     </div>
+
 </body>
 </html>

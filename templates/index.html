@@ -9,7 +9,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <!-- Top Bar -->
+    <div class="back"> 
     <header class="top-bar">
         <a href="{{ url_for('index') }}" class="logo">ASIL</a>
         {% if user_logged_in %}
@@ -32,6 +32,8 @@
             <img src="{{ url_for('static', filename='images/tree.jpg') }}" alt="Tree representing growth and overcoming habits">
         </div>
     </section>
+
+</div>
 
     <!-- About Section -->
     <section id="about" class="about-section">
@@ -73,20 +75,33 @@
     <!-- How to Get Started Section -->
     <section id="how-to-get-started" class="get-started-section">
         <h2>How to Get Started</h2>
-        <ol>
-            <li>Create an account by clicking the button below and entering your information</li>
-            <li>Answer a quick questionnaire about the bad habit you wish to overcome and select your character</li>
-            <li>Start using the web app!</li>
-        </ol>
-        <a href="{{ url_for('registration') }}" class="register-btn">Register Now</a>
-    </section>    
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <p>Create an account by clicking the button below and entering your information.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <p>Answer a quick questionnaire about the bad habit you wish to overcome and select your character.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <p>Start using the web app!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
+
     <footer>
         <p>© 2024 by ASIL</p>
     </footer>
 
-    <!-- Sign In Modal -->
     <div id="sign-in-modal" class="modal">
         <div class="modal-content">
             <span id="close-btn" class="close-btn">&times;</span>
