@@ -1,4 +1,24 @@
-from flask import Flask, request
+from . import db
+from flask_login import UserMixin
+from sqlalchemy.sql import func
+
+
+class Journal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.String(10000))
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(150), unique=True)
+    password = db.Column(db.String(150))
+    username = db.Column(db.String(150))
+    habit_date = db.Column(db.DateTime(timezone=True), default=func.now())
+    notes = db.relationship('Note')
+    #character, habit
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
@@ -25,20 +45,20 @@ def create_app():
 
 
 
-    from .models import User
+    from .models import User, Journal
 
     with app.app_context():
         db.create_all()
 
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.index'
+    login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
 
-    return app  
+    return app
 
 
 def create_database(app):
