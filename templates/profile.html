@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ASIL</title>
+    <!-- Update to use Flask's static file handling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">ASIL</a>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+            <a href="#how-to-get-started">How to Get Started</a>
+        </nav>
+        <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a> <!-- Update link to use Flask's URL -->
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-container">
+        <!-- Left Side (Profile Picture and Username) -->
+        <div class="profile-left">
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile picture">
+            </div>
+            <div class="username-status">
+                <p class="username">Username</p>
+                <p class="status">Days Kept Up: 10</p> <!-- Example of days kept up -->
+            </div>
+        </div>
+
+        <!-- Right Side (Creature and its details) -->
+        <div class="creature-right">
+            <div class="creature-image">
+                <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Creature Image">
+            </div>
+            <div class="creature-details">
+                <p class="creature-name">Creature Name</p>
+                <p class="creature-level">Level 5</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Check-in Section -->
+    <section class="check-in-section">
+        <button id="check-in-btn">Check-in</button>
+    </section>
+
+    <!-- Check-in Modal (Popup) -->
+    <div id="check-in-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h2>Daily Check-in</h2>
+
+            <label for="goal-followed">Did you follow your goal today?</label><br>
+            <input type="radio" name="goal-followed" id="goal-yes" value="yes"> Yes
+            <input type="radio" name="goal-followed" id="goal-no" value="no"> No
+
+            <br><br>
+
+            <label for="bad-habit">Did you avoid your bad habit today?</label><br>
+            <input type="radio" name="bad-habit" id="habit-yes" value="yes"> Yes
+            <input type="radio" name="bad-habit" id="habit-no" value="no"> No
+
+            <br><br>
+
+            <label for="journal">Write about your day (optional):</label><br>
+            <textarea id="journal" name="journal" rows="4" cols="50"></textarea>
+
+            <br><br>
+            <button id="submit-check-in">Submit</button>
+        </div>
+    </div>
+</body>
+</html>

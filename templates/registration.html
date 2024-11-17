@@ -24,8 +24,10 @@
     <section class="registration-section">
         <h1>Create an Account</h1>
 
-        <section id="about" style="max-height: 200px; margin-top:-20px" class="about-section">
-            <p>This form will help you get started with your end goals. Your response will reflect the progress made for your adaptable habit using our integrated calendar.<br>Please make sure to add all the relevant details you want to share with the program for efficiency.</p>
+        <section id="about" style="max-height: 250px; margin-top:-5%" class="about-section">
+            <p>
+                This form will help you set a clear path toward achieving your goals. Your responses will be used to track progress through an integrated calendar, allowing you to adapt your habits over time.
+            </p>
         </section>
 
         <form action="{{ url_for('registration') }}" method="POST" class="registration-form">
@@ -48,17 +50,27 @@
             </div>            
 
             <div class="questions-section">
-                <h2>Additional Information</h2>
+                <h2 style="margin-bottom:2%; margin-top:-2%;">Additional Information</h2>
 
                 <div class="form-group">
-                    <label for="question1">Why do you want to use this app?</label>
-                    <textarea id="question1" name="question1" placeholder="Your answer" required></textarea>
+                    <label for="question1">What is/are the bad habits you want to overcome?</label>
+                    <textarea id="question1" name="question1" placeholder="e.g.s Smoking, Alcohol consumption." required></textarea>
                 </div>
+                
                 <div class="form-group">
-                    <label for="question2">What is your primary goal in overcoming bad habits?</label>
-                    <textarea id="question2" name="question2" placeholder="Your answer" required></textarea>
+                    <label for="goal-days">Please select your goal: the number of days you aim to stay without engaging in your bad habit.</label>
+                    <select id="goal-days" name="goal-days" required class="styled-dropdown">
+                        <option value="10">10 days</option>
+                        <option value="15">15 days</option>
+                        <option value="20">20 days</option>
+                        <option value="25">25 days</option>
+                        <option value="30">1 month</option>
+                        <option value="60">2 months</option>
+                        <option value="90">3 months</option>
+                    </select>
                 </div>
-
+                
+                
                 <div class="form-group">
                     <label>Choose your character:</label>
                     <div class="image-selection">
@@ -85,3 +97,4 @@
     </footer>
 </body>
 </html>
+
