@@ -51,13 +51,14 @@ def registration():
         password = request.form.get("password")
         email = request.form.get("email")
         character = request.form.get('character')
+        goals = request.form.get("goal-days")
 
         users[name] = {}
         users[name]['days_kept_up'] = 0
         users[name]['creature_name'] = character
         users[name]['creature_level'] = 0
         users[name]['checked_in_days'] = 0
-        users[name]['current_goal'] = 60
+        users[name]['current_goal'] = goals
         users[name]['email'] = email
         users[name]['password'] = password
         users[name]['habit'] = habit

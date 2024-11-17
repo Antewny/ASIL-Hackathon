@@ -15,14 +15,16 @@ users = {
         "creature_name": "Fido",
         "creature_level": 1,
         "checked_in_days": ["November 17, 2024"],
-        "current_goal": 30
+        "current_goal": 30,
+        "bad_habit_placeholder": "Smoking",
     },
     "Bili Bob": {
         "days_kept_up": 1,
         "creature_name": "Armageddon",
         "creature_level": 2,
         "checked_in_days": ["November 17, 2024"],
-        "current_goal": 60
+        "current_goal": 60,
+        "bad_habit_placeholder": "Smoking",
     }
 }
 @views.route('Index')
@@ -60,14 +62,17 @@ def profile():
         pet_level_placeholder=user_data['creature_level'],
         checked_in_days=user_data['checked_in_days'],
         checked_in_today=checked_in_today,
+        bad_habit_placeholder=user_data['bad_habit_placeholder']
     )
    #return render_template("profile.html")
 
 @views.route('Check-in', methods= ['GET', 'POST'])
 def check_in():
     if request.method == 'POST':
-        journal = 0
-        journal = journal
-        users[current_user]['journal'] = journal
-        return render_template("checkin.html")
+        name = current_user
+        return render_template('index.html', user_logged_in = True)
+        #journal = request.form.get('journal')
+        #users[name]['journal'] = journal
+        #return render_template("checkin.html")
     return render_template('checkin.html')
+    
