@@ -97,6 +97,11 @@ body.registration-page .nav-links a:hover {
     transition: all 0.3s ease;
 }
 
+.sign-in-link:link,
+.sign-in-link:visited {
+    color: black;
+}
+
 button, .get-started-btn, .register-btn {
     padding: 15px 30px;
     background-color: #f19b0e;
@@ -132,6 +137,11 @@ a {
     text-decoration: none; /* Ensure links inside buttons don't have underlines */
 }
 
+a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
 
 .container {
     background: #f4f4f4;
@@ -402,32 +412,6 @@ body {
     text-align: center;
 }
 
-/* Profile Section */
-.profile-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: white;
-    width: 80%;
-    margin-top: 30px;
-}
-
-.profile-left, .creature-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-.username-status {
-    margin-top: 10px;
-}
-
 .creature-image img {
     width: 100px;
     height: 100px;
@@ -456,7 +440,6 @@ body {
     background-color: #d07a05;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -465,7 +448,9 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
     padding-top: 60px;
 }
 
@@ -477,6 +462,41 @@ body {
     border-radius: 10px;
     text-align: left;
 }
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    padding-top:2%;
+}
+
+.modal-content label {
+    margin-bottom: 5px; /* Adds some space between labels and their inputs */
+}
+
+.modal-content input {
+    margin-bottom: 15px; /* Adds extra space between input fields */
+    padding: 10px; /* Ensures input fields are comfortable to use */
+    border-radius: 5px; /* Makes inputs look more appealing */
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.modal-content button {
+    margin-top: 15px; /* Adds spacing above the button */
+    padding: 10px 20px; /* Increases button size for better usability */
+    background-color: #f19b0e;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #d07a05;
+}
+
 
 .close-btn {
     color: #aaa;
@@ -492,3 +512,28 @@ body {
     cursor: pointer;
 }
 
+/* Profile Section */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.profile-left, .creature-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.username-status {
+    margin-top: 10px;
+}
