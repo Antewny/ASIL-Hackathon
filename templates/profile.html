@@ -10,17 +10,17 @@
 <body>
     <header class="top-bar">
         <a href="{{ url_for('index') }}" class="logo">ASIL</a>
-        {% if user_logged_in %}
-            <a href="{{ url_for('profile') }}">Profile</a>
-        {% else %}
-            <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
-        {% endif %}
+        <a href="{{ url_for('index') }}">Log out</a>
     </header>
     
     <section class="hero-section profile">
         <div class="profile-pic">
             <div class="profile-picture">
-                <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% if username_placeholder == "Katy Lio" %}
+                    <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/plant.jpg') }}" alt="Profile Picture" class="large-profile-img">
+                {% endif %}    
             </div>
         </div>
         <div class="profile-text">
