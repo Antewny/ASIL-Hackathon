@@ -5,7 +5,7 @@
     font-family: Arial, sans-serif;
 }
 body {
-    background-color: white; 
+    background-color: #f4f4f4; 
     color: #333;
     display: flex;
     flex-direction: column;
@@ -20,9 +20,10 @@ body {
 }
 
 .back {
-    background-color: white; 
+    background-color: f4f4f4; 
     width:100%;
 }
+
 header, section, footer {
     padding: 50px 20px;
 }
@@ -51,23 +52,17 @@ header, section, footer {
     border: 2px solid white;
 }
 
-/* Disable navigation links when on registration page */
 body.registration-page .nav-links a {
-    pointer-events: none; /* Disable clicking on the nav links */
-    color: #888; /* Change the color of the links to indicate they are inactive */
+    pointer-events: none; 
+    color: #888;
 }
 
-/* For non-active registration page links: optional, makes links look less clickable */
 body.registration-page .nav-links a:hover {
     background-color: transparent;
     color: #888;
 }
 
-
-
-
 /* General styling for top-bar */
-
 .top-bar {
     width: 100%;
     background-color: #f19b0e;
@@ -77,6 +72,11 @@ body.registration-page .nav-links a:hover {
     padding: 10px 20px;
     position: fixed;
     top: 0;
+    z-index: 100;
+}
+
+.page-container {
+    background-color: #f4f4f4;
 }
 
 /* Styling the logo */
@@ -128,17 +128,15 @@ button:hover, .get-started-btn:hover, .register-btn:hover {
     background-color: #d07a05;
 }
 
-.get-started-btn {
-    margin-left: auto;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
 .register-btn {
-    margin-top: 20px;
-    padding: 15px 40px;
     font-size: 20px;
+    padding: 15px 40px;
+    margin-top: 20px;
+    background-color: #f19b0e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 a {
@@ -160,15 +158,18 @@ a:visited {
     column-gap: 5px;
 }
 
-.hero-section {
-    background-color: #f0f0f0; /* Light gray background */
-    padding: 100px 20px;
-    display: flex;
+.hero-section profile {
+    background-color: #f4f4f4; /* Light gray background */
+    padding-top: 100px;
+    padding-left:20px;
+    marging-bottom: -100px;
+    display: grid;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
+    gap: 50px;
 }
 
 .hero-section h1 {
@@ -178,19 +179,19 @@ a:visited {
 }
 
 .hero-section p {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 40px;
 }
 
 .hero-section img {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     border-radius: 15px;
     margin-top: 20px;
 }
 
 .about-section p, .team-section p, .get-started-section ul {
-    font-size: 20px;
+    font-size: 23px;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
@@ -226,7 +227,6 @@ a:visited {
     color: white;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .hero-section, .about-section, .team-section, .get-started-section {
         padding: 40px 20px;
@@ -246,8 +246,6 @@ a:visited {
     }
 }
 
-
-
 .registration-section {
     padding-top: 120px;
     width: 100%;
@@ -256,8 +254,12 @@ a:visited {
 }
 
 .registration-section h1 {
-    font-size: 36px;
+    font-size: 45px;
     margin-bottom: 20px;
+}
+
+.registration-section p {
+    font-size: 22px;
 }
 
 .registration-form {
@@ -271,7 +273,6 @@ a:visited {
     flex-direction: column;
     align-items: flex-start;
 }
-
 
 .styled-dropdown {
     width: 100%;
@@ -287,15 +288,23 @@ a:visited {
 }
 
 .styled-dropdown:focus {
-    border-color: #4CAF50; 
+    border-color: #f19b0e; 
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 5px #f19b0e;
 }
 
 .form-group label {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 8px;
     color: #333;
+    text-align: left;
+}
+
+.form-group input {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
 }
 
 .registration-form .form-group {
@@ -364,10 +373,10 @@ button:hover {
 }
 
 footer {
-    background-color: #333;  /* Dark grey footer */
+    background-color: #333; 
     color: white;
     font-size: 14px;
-    padding: 15px 20px;
+    padding: 10px 20px;
     text-align: center;
     width: 100%;
     position: fixed;
@@ -378,41 +387,27 @@ footer p {
     margin: 0;
 }
 
-/* Remove the hover option and use default background color */
 .get-started-section ul {
     list-style-type: decimal;
     font-size: 20px;
     margin: 0 auto;
-    padding-left: 20px; /* Indentation for the list */
+    padding-left: 20px; 
 }
 
 .get-started-section ol {
     font-size: 20px;
     margin: 0 auto;
     padding-left: 20px;
-    list-style-type: decimal; /* Numbered list style */
+    list-style-type: decimal;
 }
 
 .get-started-section li {
     line-height: 1.6;
-    margin-bottom: 15px; /* Spacing between the points */
+    margin-bottom: 15px;
 }
 
-/* Remove any background for the "How to Get Started" section */
 .get-started-section {
-    background-color: transparent; /* Default background */
-}
-
-/* Styling the Register button */
-.register-btn {
-    font-size: 20px;
-    padding: 15px 40px;
-    margin-top: 20px;
-    background-color: #f19b0e;
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-    text-decoration: none;
+    background-color: transparent;
 }
 
 .register-btn:hover {
@@ -429,18 +424,6 @@ footer p {
     margin-top: 10px;
 }
 
-#check-in-btn {
-    padding: 10px 20px;
-    background-color: #f19b0e;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-#check-in-btn:hover {
-    background-color: #d07a05;
-}
 
 .modal {
     display: none;
@@ -499,7 +482,6 @@ footer p {
     background-color: #d07a05;
 }
 
-
 .close-btn {
     color: #aaa;
     float: right;
@@ -528,7 +510,7 @@ footer p {
     column-gap: 5px;
 }
 
-.profile-left, .creature-right {
+.profile-text, .creature-right {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -561,6 +543,10 @@ footer p {
     padding-bottom: 100px;
 }
 
+.p {
+    font-size: 16px;
+}
+
 .step {
     display: flex;
     align-items: center;
@@ -586,41 +572,60 @@ footer p {
 /* General styling for hero-section */
 
 
-.profile-left {
+.profile-text {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 50px; 
 }
 
-.profile-left .large-profile-img {
+.profile-text .large-profile-img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.profile-right {
-    flex: 1;
-    text-align: left;
-    margin-left: 20px;
-}
 
-.profile-right .username,
-.profile-right .status,
-.profile-right .pet-name,
-.profile-right .pet-level {
+.profile-pic .username,
+.profile-pic .status,
+.profile-pic .pet-name,
+.profile-pic .pet-level {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
 .check-in-section {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: -50px;
+}
+
+.check-in-section p {
+    font-size: 18px; 
+    line-height: 1.6;  
+    margin-bottom: 30px; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; 
+}
+
+#check-in-btn {
+    padding: 20px 40px;  
+    font-size: 22px; 
+    background-color: #f19b0e;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px; 
 }
 
 .large-btn {
     padding: 15px 30px;
+    padding-top: -100px;
     background-color: #f19b0e;
     color: white;
     border-radius: 10px;
@@ -634,45 +639,242 @@ footer p {
 }
 
 .weekly-report-section {
-    margin-top: 50px;
-    padding: 50px 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.report-container {
+    display: flex;
+    gap: 30px;
+}
+
+.calendar-container {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
     background-color: #f9f9f9;
-    width: 100%;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar__month,
+.calendar__year {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar__day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.calendar__day:hover {
+    background-color: #f0f0f0;
+}
+    
+.day {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Optional: Highlight current day */
+#sun, #mon, #tue, #wed, #thu, #fri, #sat {
+    background-color: #f9f9f9;
+    font-weight: normal;
+}
+
+/* Profile Section */
+.hero-section.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 20px;
+    background-color: #f4f4f4;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-text {
+    flex: 1;
+    text-align: left;
+}
+
+.profile-pic {
+    flex: 1;
+    text-align: right;
+}
+
+.profile-picture img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.username-status p {
+    font-size: 24px;
+    margin: 10px 0;
 }
 
 .report-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    position: relative;
+    margin-top: 20px;
 }
 
 .calendar-container {
-    flex: 1;
+    width: 50%;
 }
 
 .week-view {
-    flex: 2;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
-.day {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
+.week-view .day {
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
 }
 
+.week-view .day:hover {
+    background-color: #f19b0e;
+    color: white;
+}
+
+/* Check-in Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .hero-section {
+    .hero-section.profile {
         flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
-    .profile-left .large-profile-img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .profile-right {
+    .profile-picture img {
+        width: 80%;
         margin-top: 20px;
     }
+
+    .report-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-container, .week-view {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .week-view .day {
+        font-size: 18px;
+    }
+}
+
+.week-container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.weekday {
+    padding: 10px;
+    background-color: #f19b0e;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.weekday:hover {
+    background-color: #d07a05;
+}
+
+.journal-container {
+    width: 60%;
+    margin-left: 20px;
+}
+
+.journal-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+.journal-box p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
 }

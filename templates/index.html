@@ -9,11 +9,11 @@
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <div class="back"> 
+    <!-- <div class="back">  -->
     <header class="top-bar">
         <a href="{{ url_for('index') }}" class="logo">ASIL</a>
         {% if user_logged_in %}
-            <a href="{{ url_for('profile') }}" class="profile-icon">Profile</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
         {% else %}
             <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
         {% endif %}
@@ -23,17 +23,17 @@
     <section class="container">
         <div class="hero-section text">
             <h1>ASIL</h1>
-            <p>Fun and easy way to overcome bad habits</p>
+            <p>Fun and easy way<br>to overcome bad habits</p>
             <a href="{{ url_for('registration') }}" class="register-btn">Register Now</a>
             <br>
-            <a href="#" class="sign-in-link" id="sign-in-link">Already have an account? <u>Sign In</u></a>
+            <a class="sign-in-link" id="sign-in-link">Already have an account? <u>Sign In</u></a>
         </div>
         <div class="hero-section img">
             <img src="{{ url_for('static', filename='images/tree.jpg') }}" alt="Tree representing growth and overcoming habits">
         </div>
     </section>
 
-</div>
+<!-- </div> -->
 
     <!-- About Section -->
     <section id="about" class="about-section">
@@ -79,7 +79,7 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-text">
-                    <p>Create an account by clicking the button below and entering your information.</p>
+                    <p>Create an account by clicking the button in the top right corner and entering your information.</p>
                 </div>
             </div>
             <div class="step">
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
 
     <footer>

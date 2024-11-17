@@ -4,8 +4,7 @@ app.secret_key = 'your_secret_key'
 
 @app.route('/')
 def index():
-    user_logged_in = True; 
-    return render_template('index.html', user_logged_in=user_logged_in)
+    return render_template('index.html', user_logged_in=True)
 
 @app.route("/profile")
 def profile():
@@ -13,13 +12,19 @@ def profile():
     days_kept_up = 10
     creature_name = "Fido"
     creature_level = 5
+    checked_in_days = ["November 16, 2024"]  # Array of checked-in dates
+
     return render_template(
         "profile.html",
+        user_logged_in=True,
         username_placeholder=username,
         days_kept_up_placeholder=days_kept_up,
         pet_name_placeholder=creature_name,
-        pet_level_placeholder=creature_level
-)
+        pet_level_placeholder=creature_level, 
+        checked_in_days=checked_in_days
+    )
+
+
 
 @app.route("/registration")
 def registration():
@@ -31,19 +36,12 @@ def sign_in():
     password = request.form['password']
     #return something
 
-@app.route('/check_in', methods=['POST'])
+@app.route('/check-in', methods=['POST'])
 def check_in():
-    goal_followed = request.form.get('goal-followed')
     bad_habit = request.form.get('bad-habit')
-    journal_entry = request.form.get('journal')
-
-    # Example processing logic
-    print(f"Goal followed: {goal_followed}")
-    print(f"Bad habit avoided: {bad_habit}")
-    print(f"Journal entry: {journal_entry}")
-
-    # Redirect back to the profile page after check-in
-    return redirect(url_for('profile'))
+    journal = request.form.get('journal')
+    checked_in_days = ["November 16, 2024"]
+    return redirect(url_for('profile', checked_in_days=checked_in_days))
 
 if __name__ == '__main__':
     app.run(debug=True)

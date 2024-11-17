@@ -8,94 +8,126 @@
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <div class="back"> 
-        <header class="top-bar">
-            <a href="{{ url_for('index') }}" class="logo">ASIL</a>
-            {% if user_logged_in %}
-                <a href="{{ url_for('profile') }}" class="profile-icon">
-                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile Icon">
-                </a>
-            {% else %}
-                <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
-            {% endif %}
-        </header>
+    <header class="top-bar">
+        <a href="{{ url_for('index') }}" class="logo">ASIL</a>
+        {% if user_logged_in %}
+            <a href="{{ url_for('profile') }}">Profile</a>
+        {% else %}
+            <a href="{{ url_for('registration') }}" class="get-started-btn">Sign up</a>
+        {% endif %}
+    </header>
     
-        <section class="hero-section">
-            <div class="profile-left">
-                <div class="profile-picture">
-                    <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile Picture" class="large-profile-img">
-                </div>
+    <section class="hero-section profile">
+        <div class="profile-pic">
+            <div class="profile-picture">
+                <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Profile Picture" class="large-profile-img">
             </div>
-            <div class="profile-right">
-                <div class="username-status">
-                    <p class="username">{{ username_placeholder }}</p> 
-                    <p class="status">Days Kept Up: {{ days_kept_up_placeholder }}</p> 
-                    <p class="pet-name">Pet Name: {{ pet_name_placeholder }}</p>
-                    <p class="pet-level">Pet Level: {{ pet_level_placeholder }}</p>
-                </div>
-            </div>
-        </section>
-    
-    </div>
-
-    <!-- Check-in Section -->
-    <section class="check-in-section">
-        <button id="check-in-btn" class="large-btn">Check-in</button>
-    </section>
-
-    <!-- Weekly Report Section -->
-    <section class="weekly-report-section">
-        <h2>Weekly Report</h2>
-        <div class="report-container">
-            <!-- Left Column - Calendar -->
-            <div class="calendar-container">
-                <div class="calendar">
-                    <div class="calendar__month"></div>
-                    <div class="calendar__year"></div>
-                    <div class="calendar__days"></div>
-                </div>
-            </div>
-
-            <!-- Right Column - Current Week View -->
-            <div class="week-view">
-                <div class="day" id="sun">Sunday</div>
-                <div class="day" id="mon">Monday</div>
-                <div class="day" id="tue">Tuesday</div>
-                <div class="day" id="wed">Wednesday</div>
-                <div class="day" id="thu">Thursday</div>
-                <div class="day" id="fri">Friday</div>
-                <div class="day" id="sat">Saturday</div>
+        </div>
+        <div class="profile-text">
+            <div class="username-status">
+                <p class="username">{{ username_placeholder }}</p> 
+                <p class="status">Days Kept Up: {{ days_kept_up_placeholder }}</p> 
+                <p class="pet-name">Pet Name: {{ pet_name_placeholder }}</p>
+                <p class="pet-level">Pet Level: {{ pet_level_placeholder }}</p>
             </div>
         </div>
     </section>
 
-    <!-- Check-in Modal (Popup) -->
+    <section class="check-in-section">
+        <button id="check-in-btn" class="large-btn">Check-in</button>
+        <p><br> This button is for your daily check-in. Filling out this form every day will help your character grow and level up over time, reflecting your progress and development. Be honest when answering, as this helps track your true progress and improvement. Let’s keep moving forward together!</p>
+    </section>
+    
     <div id="check-in-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="close-btn">&times;</span>
             <h2>Daily Check-in</h2>
-
-            <form action="{{ url_for('check_in') }}" method="POST">
-                <label for="goal-followed">Did you follow your goal today?</label><br>
-                <input type="radio" name="goal-followed" value="yes"> Yes
-                <input type="radio" name="goal-followed" value="no"> No
-
-                <br><br>
-
-                <label for="bad-habit">Did you avoid your bad habit today?</label><br>
-                <input type="radio" name="bad-habit" value="yes"> Yes
-                <input type="radio" name="bad-habit" value="no"> No
-
-                <br><br>
-
-                <label for="journal">Write about your day (optional):</label><br>
-                <textarea id="journal" name="journal" rows="4" cols="50"></textarea>
-
-                <br><br>
+            <form action="{{ url_for('check_in') }}" method="POST" id="check-in-form">
+                <label for="bad-habit">Did you avoid your bad habit today?</label>
+                <div>
+                    <input type="radio" name="bad-habit" value="yes" id="bad-habit-yes" required> <label for="bad-habit-yes">Yes</label>
+                    <input type="radio" name="bad-habit" value="no" id="bad-habit-no" required> <label for="bad-habit-no">No</label>
+                </div>
+                
+                <label for="journal">Write about your Journal entry for today:</label>
+                <textarea id="journal" name="journal" rows="4" cols="50" required></textarea>
+                
                 <button type="submit" id="submit-check-in">Submit</button>
             </form>
         </div>
     </div>
 
+    <section class="weekly-report-section">
+        <h2>Report</h2>
+        <div class="report-container">
+            <div class="calendar-container">
+                <div class="calendar">
+                    <div class="calendar__month" id="calendar-month"></div>
+                    <div class="calendar__year" id="calendar-year"></div>
+                    <div class="calendar__days" id="calendar-days"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-container">
+            <div class="weekdays">
+                <div class="weekday" data-day="Sunday">Sun</div>
+                <div class="weekday" data-day="Monday">Mon</div>
+                <div class="weekday" data-day="Tuesday">Tue</div>
+                <div class="weekday" data-day="Wednesday">Wed</div>
+                <div class="weekday" data-day="Thursday">Thu</div>
+                <div class="weekday" data-day="Friday">Fri</div>
+                <div class="weekday" data-day="Saturday">Sat</div>
+            </div>
+            <div class="journal-container">
+                <div class="journal-box" id="journal-box">
+                    <p>Select a day to view your journal entry.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('check-in-btn').addEventListener('click', () => {
+            document.getElementById('check-in-modal').style.display = 'block';
+        });
+
+        // Close modal on close button click
+        document.getElementById('close-btn').addEventListener('click', () => {
+            document.getElementById('check-in-modal').style.display = 'none';
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+    
+            const weekdays = document.querySelectorAll('.weekday');
+        const journalBox = document.getElementById('journal-box');
+
+        // Example journal data for each day of the week
+        const journals = {
+            Sunday: "Journal entry for Sunday.",
+            Monday: "Journal entry for Monday.",
+            Tuesday: "Journal entry for Tuesday.",
+            Wednesday: "Journal entry for Wednesday.",
+            Thursday: "Journal entry for Thursday.",
+            Friday: "Journal entry for Friday.",
+            Saturday: "Journal entry for Saturday."
+        };
+
+        // Add event listeners to each weekday button
+        weekdays.forEach(day => {
+            day.addEventListener('click', () => {
+                const selectedDay = day.getAttribute('data-day');
+                // Update the journal box with the corresponding entry
+                journalBox.innerHTML = `<p>${journals[selectedDay]}</p>`;
+            });
+        });
+    });
+
+        
+    </script>
 </body>
 </html>
+
+
+<!-- jornal - array of strings -->
