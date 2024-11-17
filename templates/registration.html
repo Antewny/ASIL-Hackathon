@@ -65,17 +65,19 @@
                 <div class="form-group">
                     <label>Choose your character:</label>
                     <div class="image-selection">
-                        <input type="radio" id="character1" name="character" value="character1" required>
+                        <!-- Character 1: Plant -->
+                        <input type="radio" id="character1" name="character" value="plant" required>
                         <label for="character1">
                             <img src="{{ url_for('static', filename='images/plant.jpg') }}" alt="Character 1">
                         </label>
-
-                        <input type="radio" id="character2" name="character" value="character2" required>
+            
+                        <!-- Character 2: Dog -->
+                        <input type="radio" id="character2" name="character" value="dog" required>
                         <label for="character2">
                             <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Character 2">
                         </label>
                     </div>
-                </div>
+                </div>                
             </div>
 
             <button type="submit" class="submit-btn"><b>Register</b></button>

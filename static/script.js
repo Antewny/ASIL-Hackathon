@@ -1,10 +1,13 @@
 const currentDate = new Date();
 
 function getWeekRange(date) {
-    const day = date.getDay(),
-          diff = date.getDate() - day + (day == 0 ? -6 : 0); // Adjust when day is sunday
-    const startDate = new Date(date.setDate(diff));
-    const endDate = new Date(date.setDate(diff + 6));
+    const day = date.getDay();
+    const startDate = new Date(date);
+    startDate.setDate(date.getDate() + (day === 6 ? 0 : 0));
+    
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + (6 - startDate.getDay())); // Set to next Saturday
+
     return [startDate, endDate];
 }
 
@@ -25,7 +28,7 @@ function updateCalendar() {
 
     for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
         const emptyDay = document.createElement('div');
-        emptyDay.className = 'calendar__day';
+        emptyDay.className = 'calendar__day empty';
         calendarDays.appendChild(emptyDay);
     }
 
@@ -33,7 +36,6 @@ function updateCalendar() {
         const dayElement = document.createElement('div');
         dayElement.className = 'calendar__day';
         dayElement.textContent = i;
-        dayElement.addEventListener('click', () => highlightWeek(i));
         calendarDays.appendChild(dayElement);
     }
     highlightCurrentWeek();
@@ -42,15 +44,27 @@ function updateCalendar() {
 function highlightCurrentWeek() {
     const [startDate, endDate] = getWeekRange(currentDate);
     const weekDays = document.querySelectorAll('.calendar__day');
+    const today = currentDate.getDate();
+
+    console.log("Start Date of Week:", startDate);
+    console.log("End Date of Week:", endDate);
 
     weekDays.forEach(day => {
         const dayNumber = parseInt(day.textContent, 10);
-        if (dayNumber >= startDate.getDate() && dayNumber <= endDate.getDate()) {
-            day.style.backgroundColor = '#f19b0e';
-            day.style.color = 'white';
+
+        if (!isNaN(dayNumber)) {
+            const dayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber);
+
+            if (dayDate.toDateString() === currentDate.toDateString()) {
+                day.style.backgroundColor = '#f19b0e';
+                day.style.color = 'white';
+            } else if (dayDate >= startDate && dayDate <= endDate && dayDate > currentDate) {
+                day.style.backgroundColor = '#c07a0a';
+                day.style.color = 'white';
+            }
+            console.log("Processing Day:", dayNumber, "Date:", dayDate);
         }
     });
-    updateWeekView(startDate);
 }
 
 function updateWeekView(startDate) {
@@ -62,12 +76,6 @@ function updateWeekView(startDate) {
         currentDate.setDate(currentDate.getDate() + index);
         dayElement.textContent = currentDate.toLocaleString('en-us', { weekday: 'long' });
     });
-}
-
-function highlightWeek(dayNumber) {
-    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber);
-    const [startDate, endDate] = getWeekRange(selectedDate);
-    updateWeekView(startDate);
 }
 
 window.onload = updateCalendar;
